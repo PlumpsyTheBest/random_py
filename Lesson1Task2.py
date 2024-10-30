@@ -11,7 +11,7 @@ def rectangle_perimeter(width, height):
 # Prompts the user for a valid rectangle dimension and returns it.
 def get_valid_dimension(typeoflength):
     length = input("What is the " + typeoflength)
-    while length > "0" and type(input) != float:
+    while length <= 0:
         length = input("Wrong try again what is the " + typeoflength)
     return length
 
