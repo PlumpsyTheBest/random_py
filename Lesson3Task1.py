@@ -2,7 +2,7 @@
 def get_names_and_scores():
     names_array = [""]*10
     score_array = [0]*len(names_array)
-    for counter in range(0,len(names_array)):
+    for counter in range(len(names_array)):
         names_array[counter] = input("What is the name of student " + str(counter+1))
         score_array[counter] = get_valid_score()
     return names_array, score_array
@@ -20,7 +20,7 @@ def get_valid_score():
 # Calculate the percentage for each score
 def calculate_percentage(scores):
     percentage_array = [0]*len(scores)
-    for counter in range(0, len(scores)):
+    for counter in range(len(scores)):
         percentage_array[counter] = (scores[counter]/110)*100
     return percentage_array
 
@@ -29,7 +29,7 @@ def calculate_percentage(scores):
 # Determine grades based on each percentage
 def determine_grade(percent):
     grade_array = [""]*len(percent)
-    for counter in range(0, len(percent)):
+    for counter in range(len(percent)):
         if percent[counter] > 80:
             grade_array[counter] = "A"
         elif percent[counter] > 70:
@@ -47,7 +47,7 @@ def determine_grade(percent):
 def display_student_info(names, scores, percentages, grades):
     print("Student Exam Results:")
     print("Name\t\tScore\t\tPercentage\t\tGrade")
-    for counter in range(0, len(names)):
+    for counter in range(len(names)):
         print(names[counter] + "\t\t" + str(scores[counter]) + "\t\t" + str(round(percentages[counter], 2)) + "\t\t" + grades[counter])
 
 
