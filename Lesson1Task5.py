@@ -2,10 +2,11 @@
 def get_hours():
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     hour_array = [0]*len(days)
-    for i in range(0, len(days)):
-        user_input = int(input("How many hours did you work on " + days[i]))
-        hour_array[i] = validate_hours(user_input)
+    for counter in range(len(days)):
+        user_input = int(input("How many hours did you work on " + days[counter]))
+        hour_array[counter] = validate_hours(user_input)
     return hour_array
+
 
 # Validates hours input ensuring between 1 and 24.
 
@@ -14,13 +15,13 @@ def validate_hours(user_input):
         user_input = int(input("Wrong answer please enter again"))
     return user_input
 
+
 # Calculates total hours.
 def track_hours(hours_array):
     total = 0
-    for i in range(0, len(hours_array)):
-        total += hours_array[i]
+    for counter in range(len(hours_array)):
+        total += hours_array[counter]
     return total
-
 
 
 # Calculate pay for this week including overtime
@@ -38,7 +39,6 @@ def get_hourly_pay():
     while user_input < 11.44 or user_input > 15:
         user_input = float(input("Wrong enter pay again"))
     return user_input
-
 
 
 # Main Program
