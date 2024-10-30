@@ -2,16 +2,16 @@
 def parse_invoice(input):
     temp_array = input.split(";")
     output_array = [0.0] * len(temp_array)
-    for i in range(0, len(temp_array)):
-        output_array[i] = float(temp_array[i])
+    for counter in range(len(temp_array)):
+        output_array[i] = float(temp_array[counter])
     return output_array
 
 
 # Calculates the total price from the invoice
 def calc_total(array_of_prices):
     total = 0
-    for i in range(0, len(array_of_prices)):
-        total = total + float(array_of_prices[i])
+    for counter in range(len(array_of_prices)):
+        total += float(array_of_prices[counter])
     return total
 
 
