@@ -10,7 +10,6 @@ def get_valid_item_cost():
 def get_multiple_item_costs():
     item_cost_array = []
     more_items = ""
-    item_value = 0
     while more_items != "no":
         item_value = get_valid_item_cost()
         item_cost_array.append(item_value)
@@ -21,8 +20,8 @@ def get_multiple_item_costs():
 # Calculate the subtotal
 def calculate_subtotal(prices):
     total = 0.0
-    for i in range(0, len(prices)):
-        total = total + prices[i]
+    for counter in range(len(prices)):
+        total = total + prices[counter]
     return total
 
 
@@ -36,3 +35,4 @@ if __name__ == "__main__":
     items_cost = get_multiple_item_costs()
     sub_total = calculate_subtotal(items_cost)
     calculate_total_with_vat(sub_total)
+
