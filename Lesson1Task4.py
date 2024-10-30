@@ -8,8 +8,8 @@ def validate_expense(user_input):
 # Calculates total expenses.
 def calculate_total_expenses(expenses):
     total = 0
-    for i in range(0, len(expenses)):
-        total = total + expenses[i]
+    for counter in range(len(expenses)):
+        total += expenses[counter]
     return total
 
 
@@ -19,9 +19,9 @@ def get_expenses():
         "housing", "transport", "shopping", "utilities",
         "insurance", "debt", "entertainment", "other"]
     expenses = [0.0] * len(category)
-    for i in range(0, len(category)):
-        user_input = float(input("What is the price for " + str(category[i])))
-        expenses[i] = validate_expense(user_input)
+    for counter in range(0, len(category)):
+        user_input = float(input("What is the price for " + str(category[counter])))
+        expenses[counter] = validate_expense(user_input)
     return expenses
 
 
