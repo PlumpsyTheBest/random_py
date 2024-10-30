@@ -1,6 +1,6 @@
 # Converts Celsius to Fahrenheit.
 def celsius_to_fahrenheit(Celsius):
-    Fahrenheit = Celsius*(9/5) + 32
+    Fahrenheit = int(Celsius)*(9/5) + 32
     return Fahrenheit
 
 
@@ -12,6 +12,5 @@ if __name__ == "__main__":
         if (temperatureCelsius != "q"):
             temperatureFahrenheit = celsius_to_fahrenheit(temperatureCelsius)
             print(temperatureFahrenheit)
-        else:
-            break
+
 
