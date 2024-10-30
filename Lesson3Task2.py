@@ -2,7 +2,7 @@
 def get_employee_data(amount):
     name_array = [""]*amount
     score_array = [0]*amount
-    for counter in range(0, amount):
+    for counter in range(amount):
         name_array[counter] = input("What is the name of employee " + str(counter + 1))
         score_array[counter] = get_valid_score()
     return name_array, score_array
