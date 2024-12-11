@@ -1,0 +1,85 @@
+"""
+Name: Lesson10Task2.py
+Author:
+Date:
+Description: The program will read a file and count how many times an items is purchased and displays
+the best and least selling items.
+"""
+
+# Reads the content of a file and returns a string of the item names.
+def get_sales_data(filename):
+    file = open(filename, "r")
+    line = file.read().strip().split("\n")
+    file.close()
+
+    sales = []
+
+    for lines in line:
+        text = lines.split(",")
+        for texts in text:
+            sales.append(texts)
+
+    return sales
+
+
+# Counts the occurrences of each item from a string. Returns two parallel arrays of item names and item occurrences
+def count_item_occurrences(data):
+    names = []
+    occurrences = []
+    for datas in data:
+        check_no = 0
+        for counter in range(len(names)):
+            if names[counter] == datas:
+                occurrences[counter] += 1
+            else:
+                check_no += 1
+        if check_no == len(names):
+            names.append(datas)
+            occurrences.append(1)
+    return names, occurrences
+
+
+# Finds the index of the item with the highest number of items sold
+def identify_top_selling_item(occurrences):
+    top_no = occurrences[0]
+    index = 0
+    for counter in range(len(occurrences)-1):
+        if occurrences[counter+1] > top_no:
+            top_no = occurrences[counter+1]
+            index = counter+1
+    return index
+
+# Finds the index of the item with the lowest number of items sold
+def identify_lowest_selling_item(occurrences):
+    top_no = occurrences[0]
+    index = 0
+    for counter in range(len(occurrences)-1):
+        if occurrences[counter+1] < top_no:
+            top_no = occurrences[counter+1]
+            index = counter+1
+    return index
+
+
+# Display the item counts of all purchased items and display the name and count of the top and least selling items
+def generate_sales_report(item_names, item_counts, top_item_index, lowest_item_index):
+    for counter in range(len(item_names)):
+        print(f"{item_names[counter]} has {item_counts[counter]} occurrences")
+    print(f"The most purchased item is {item_names[top_item_index]}")
+    print(f"The least purchased item is {item_names[lowest_item_index]}")
+
+
+# Main Program
+if __name__ == "__main__":
+    # Get sales data from a file
+    file_read = "sales.csv"
+    sales_data = get_sales_data(file_read)
+
+    # Count occurrences of each item
+    name, occurrence = count_item_occurrences(sales_data)
+
+    # Identify top and least-selling items
+    top_selling_item = identify_top_selling_item(occurrence)
+    lowest_selling_item = identify_lowest_selling_item(occurrence)
+
+    # Generate and display the report
+    generate_sales_report(name, occurrence, top_selling_item,lowest_selling_item)
