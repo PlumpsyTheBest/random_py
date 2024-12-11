@@ -1,11 +1,3 @@
-"""
-Name: Lesson10Task2.py
-Author:
-Date:
-Description: The program will read a file and count how many times an items is purchased and displays
-the best and least selling items.
-"""
-
 # Reads the content of a file and returns a string of the item names.
 def get_sales_data(filename):
     file = open(filename, "r")
